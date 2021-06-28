@@ -1,4 +1,4 @@
-class Player(var _name:String,val _healthPoints:Int,
+class Player(var _name:String,var _healthPoints:Int,
              val _isBlessed:Boolean,private val _isImmortal:Boolean){
     var name = _name
         get() = field.capitalize()
@@ -12,7 +12,9 @@ class Player(var _name:String,val _healthPoints:Int,
     val healthStatus = formatHealthStatus()
     //次建構函數
     constructor(name:String): this(name,_healthPoints = 100,
-        _isBlessed = true,_isImmortal= false)
+        _isBlessed = true,_isImmortal= false){
+        if(name.toLowerCase() == "kar") _healthPoints = 40
+    }
 
     fun castFireball(numFireballs:Int =2)=
         println("一杯Fireball酒應運而生。(x$numFireballs)")
