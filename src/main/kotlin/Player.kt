@@ -25,7 +25,7 @@ class Player(var _name:String,var _healthPoints:Int =100,
         require(name.isNotBlank(),{"Player must have a name."})
     }
 
-    private fun selectHometown()= File("data/town.txt")
+    private fun selectHometown()= File("data/towns.txt")
         .readText().split("\n").shuffled().first()
 
     fun castFireball(numFireballs:Int =2)=
