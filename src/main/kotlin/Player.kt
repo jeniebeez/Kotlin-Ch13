@@ -3,7 +3,7 @@ import java.io.File
 class Player(var _name:String,var _healthPoints:Int =100,
              val _isBlessed:Boolean,private val _isImmortal:Boolean){
     var name = _name
-        get() = field.capitalize()
+        get() = "${field.capitalize()} of $hometown"
         private set(value) {
             field = value.trim() //trim刪除傳入值的前後空格
         }
