@@ -7,7 +7,7 @@ class Player(var _name:String,var _healthPoints:Int =100,
         private set(value) {
             field = value.trim() //trim刪除傳入值的前後空格
         }
-    val hometown:String=""
+    val hometown= selectHometown()
     val karma = (Math.pow(Math.random(), (110 - _healthPoints) / 100.0) *20).toInt()//返回（random的（110-生命值/100）為幾次方(指數)的值）
     //Aura
     val auraColor = auraColor(karma)
@@ -24,6 +24,8 @@ class Player(var _name:String,var _healthPoints:Int =100,
         require(name.isNotBlank(),{"Player must have a name."})
     }
 
+    private fun selectHometown()= File("data/town.txt")
+        .readText().split("\n").shuffled().first()
 
     fun castFireball(numFireballs:Int =2)=
         println("一杯Fireball酒應運而生。(x$numFireballs)")
