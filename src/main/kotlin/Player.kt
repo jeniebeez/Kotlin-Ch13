@@ -1,4 +1,4 @@
-class Player(var _name:String,var _healthPoints:Int,
+class Player(var _name:String,var _healthPoints:Int =100,
              val _isBlessed:Boolean,private val _isImmortal:Boolean){
     var name = _name
         get() = field.capitalize()
@@ -11,7 +11,7 @@ class Player(var _name:String,var _healthPoints:Int,
     //Health Status
     val healthStatus = formatHealthStatus()
     //次建構函數
-    constructor(name:String): this(name,_healthPoints = 100,
+    constructor(name:String): this(name,
         _isBlessed = true,_isImmortal= false){
         if(name.toLowerCase() == "kar") _healthPoints = 40
     }
