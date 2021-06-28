@@ -10,6 +10,9 @@ class Player(var _name:String,val _healthPoints:Int,
     val auraColor = auraColor(karma)
     //Health Status
     val healthStatus = formatHealthStatus()
+    //次建構函數
+    constructor(name:String): this(name,_healthPoints = 100,
+        _isBlessed = true,_isImmortal= false)
 
     fun castFireball(numFireballs:Int =2)=
         println("一杯Fireball酒應運而生。(x$numFireballs)")
