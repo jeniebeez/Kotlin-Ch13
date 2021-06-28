@@ -1,13 +1,11 @@
-class Player(_name:String,_healthPoints:Int,_isBlessed:Boolean,_isImmortal:Boolean){
+class Player(var _name:String,val _healthPoints:Int,
+             val _isBlessed:Boolean,private val _isImmortal:Boolean){
     var name = _name
         get() = field.capitalize()
         private set(value) {
             field = value.trim() //trim刪除傳入值的前後空格
         }
-    var healthPoints = _healthPoints
-    var isBlessed = _isBlessed
-    private val isImmortal = _isImmortal
-    val karma = (Math.pow(Math.random(), (110 - healthPoints) / 100.0) *20).toInt()//返回（random的（110-生命值/100）為幾次方(指數)的值）
+    val karma = (Math.pow(Math.random(), (110 - _healthPoints) / 100.0) *20).toInt()//返回（random的（110-生命值/100）為幾次方(指數)的值）
     //Aura
     val auraColor = auraColor(karma)
     //Health Status
@@ -17,10 +15,10 @@ class Player(_name:String,_healthPoints:Int,_isBlessed:Boolean,_isImmortal:Boole
         println("一杯Fireball酒應運而生。(x$numFireballs)")
 
     fun formatHealthStatus()=
-        when (healthPoints) {
+        when (_healthPoints) {
             100 -> "健康狀態極佳"
             in 90..99 -> "有一些小擦傷"
-            in 75..89 -> if (isBlessed) {
+            in 75..89 -> if (_isBlessed) {
                 "雖有一些傷口，但恢復很快"
             } else {
                 "有一些傷口"
