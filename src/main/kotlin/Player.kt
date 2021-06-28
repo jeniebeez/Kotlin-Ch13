@@ -7,7 +7,8 @@ class Player(var _name:String,var _healthPoints:Int =100,
         private set(value) {
             field = value.trim() //trim刪除傳入值的前後空格
         }
-    val hometown= selectHometown()
+    //惰性初始化 - 當需要時才初始化
+    val hometown by lazy{selectHometown()}
     val karma = (Math.pow(Math.random(), (110 - _healthPoints) / 100.0) *20).toInt()//返回（random的（110-生命值/100）為幾次方(指數)的值）
     //Aura
     val auraColor = auraColor(karma)
