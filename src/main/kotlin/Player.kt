@@ -15,6 +15,12 @@ class Player(var _name:String,var _healthPoints:Int =100,
         _isBlessed = true,_isImmortal= false){
         if(name.toLowerCase() == "kar") _healthPoints = 40
     }
+    //定義初始化區塊
+    init {
+        require(_healthPoints >0,{"healthPoints must be greater than zero."})
+        require(name.isNotBlank(),{"Player must have a name."})
+    }
+
 
     fun castFireball(numFireballs:Int =2)=
         println("一杯Fireball酒應運而生。(x$numFireballs)")
